@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>بانک اطلاعات حقوق و پرداختی ها</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>در حال پردازش داده‌ها، لطفا صبر کنید...</p>
+    </div>
+
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header-wrapper">
+            <header class="main-header">
+                <h1>
+                    <span class="header-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                        </svg>
+                    </span>
+                    <span class="header-text">بانک اطلاعات حقوق و پرداختی‌ها</span>
+                </h1>
+            </header>
+        </div>
+
+        <!-- 🔥 RIBBON 1: مدیریت داده‌ها -->
+        <div class="ribbon-container data-management-ribbon">
+            <div class="ribbon-title">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125" />
+                </svg>
+                <span>مدیریت داده‌ها</span>
+            </div>
+            <div class="ribbon-controls">
+                <div class="data-management">
+                    <label for="importFileInput" id="importDataBtn" class="btn-glass">
+                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3v11.25" />
+                        </svg>
+                        <span>ورود داده</span>
+                    </label>
+                    <input type="file" id="importFileInput" accept=".json" style="display: none;" />
+                </div>
+                <div class="data-management">
+                    <button id="exportDataBtn" class="btn-glass">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                        <span>خروجی داده</span>
+                    </button>
+                </div>
+                 <div class="data-management">
+                    <label for="limitsFileInput" class="btn-glass">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-1.125 0-2.25.9-2.25 2.25v15c0 1.35.9 2.25 2.25 2.25h15c1.35 0 2.25-.9 2.25-2.25v-4.5m-7.5-10.5h4.5m-4.5 0v4.5m0-4.5L15 6.75M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.375c.621 0 1.125.504 1.125 1.125V21" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-6 6" />
+                        </svg>
+                        <span>به‌روزرسانی سقف‌ها</span>
+                    </label>
+                    <input type="file" id="limitsFileInput" accept=".xlsx,.xls" style="display: none;" />
+                </div>
+                <div class="data-management">
+                    <button id="clearDataBtn" class="btn-glass-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.134-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.067-2.09.921-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                        </svg>
+                        <span>پاک کردن داده‌ها</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🔥 RIBBON 2: ناوبری (تب‌ها) -->
+        <div class="ribbon-container navigation-ribbon">
+            <div class="ribbon-title">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
+                </svg>
+                <span>بخش‌های سیستم</span>
+            </div>
+            <div class="tabs">
+                <button id="btn-salary" class="tab-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                    </svg>
+                    جدول حقوق و مزایا
+                </button>
+                <button id="btn-adhoc" class="tab-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    لیست پرداخت‌های موردی
+                </button>
+                <button id="btn-reports" class="tab-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="18" height="18">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                    </svg>
+                    گزارش‌های مدیریتی
+                </button>
+            </div>
+        </div>
+
+        <!-- WELCOME OVERLAY -->
+        <div id="welcome-overlay">
+            <div class="welcome-box">
+                <h2>داده‌ای برای نمایش وجود ندارد</h2>
+                <p>برای شروع، یک فایل اکسل حقوق و دستمزد یا پرداخت‌های موردی را بارگذاری نمایید.</p>
+            </div>
+        </div>
+
+        <!-- TAB 1: جدول حقوق و مزایا -->
+        <div id="tab-salary" class="tab">
+            <div class="tab-actions-bar">
+                <div class="file-upload-wrapper">
+                    <label for="salaryFileInput" class="file-upload-label">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l-3.75 3.75M12 9.75l3.75 3.75M3 13.5v6c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2v-6" />
+                        </svg>
+                        <span>بارگذاری اکسل حقوق و مزایا</span>
+                    </label>
+                    <input type="file" id="salaryFileInput" accept=".xlsx,.xls" style="display: none;" />
+                </div>
+            </div>
+            
+            <div class="filter-container">
+                <div class="filter-title-group">
+                    <h3>💰 جدول حقوق و مزایا</h3>
+                    <span id="salaryRecordCount" class="record-count"></span>
+                </div>
+                <div class="filter-controls-group">
+                    <div class="filter-group"><label for="filterSalaryLname">نام خانوادگی</label><input type="text" id="filterSalaryLname" placeholder="جستجو..."></div>
+                    <div class="filter-group"><label for="filterSalaryCompany">شرکت</label><select id="filterSalaryCompany"><option value="">همه</option></select></div>
+                    <div class="filter-group"><label for="filterSalaryLevel">سطح</label><select id="filterSalaryLevel"><option value="">همه</option></select></div>
+                    <div class="filter-group"><label for="filterSalaryMonth">ماه</label><select id="filterSalaryMonth"><option value="">همه</option></select></div>
+                    <div class="filter-group">
+                        <label for="salaryComplianceFilterBtn">فیلتر بر اساس تخطی (AND)</label>
+                        <div class="dropdown-check">
+                            <button id="salaryComplianceFilterBtn" class="dropdown-check-btn" type="button">
+                                <span>انتخاب نوع تخطی...</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><path fill-rule="evenodd" d="M5.22 8.22a.75.75 0 011.06 0L10 11.94l3.72-3.72a.75.75 0 111.06 1.06l-4.25 4.25a.75.75 0 01-1.06 0L5.22 9.28a.75.75 0 010-1.06z" clip-rule="evenodd" /></svg>
+                            </button>
+                            <div id="salaryComplianceDropdown" class="dropdown-check-menu">
+                                <a href="#" class="dropdown-item" data-value="base_pay"><input type="checkbox"><span>تخطی حقوق پایه</span></a>
+                                <a href="#" class="dropdown-item" data-value="allowance"><input type="checkbox"><span>تخطی مزایا</span></a>
+                                <a href="#" class="dropdown-item" data-value="bonus"><input type="checkbox"><span>تخطی کارانه</span></a>
+                                <a href="#" class="dropdown-item" data-value="overtime"><input type="checkbox"><span>تخطی اضافه‌کار</span></a>
+                                <a href="#" class="dropdown-item" data-value="net_no_mission"><input type="checkbox"><span>تخطی خالص (بدون ماموریت)</span></a>
+                                <a href="#" class="dropdown-item" data-value="net_with_mission"><input type="checkbox"><span>تخطی خالص (با ماموریت)</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="clearSalaryFilterBtn" title="بازنشانی تمام فیلترها و مرتب‌سازی"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.572a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3zM3.75 21L20.25 3.75" /></svg><span>حذف فیلترها</span></button>
+                </div>
+            </div>
+            <div class="table-container"><table id="salaryTable"><thead><tr><th data-sort-key="year">سال<span class="sort-indicator"></span></th><th data-sort-key="month">ماه<span class="sort-indicator"></span></th><th data-sort-key="company">شرکت<span class="sort-indicator"></span></th><th data-sort-key="fname">نام<span class="sort-indicator"></span></th><th data-sort-key="lname">نام خانوادگی<span class="sort-indicator"></span></th><th data-sort-key="semat">سمت<span class="sort-indicator"></span></th><th data-sort-key="level">سطح<span class="sort-indicator"></span></th><th data-sort-key="base_pay_30">حقوق پایه (۳۰)<span class="sort-indicator"></span></th><th data-sort-key="allowance_30">حقوق و مزایای قانونی (۳۰)<span class="sort-indicator"></span></th><th data-sort-key="bonus">کارانه<span class="sort-indicator"></span></th><th data-sort-key="overtime_hours">اضافه‌کاری (ساعت)<span class="sort-indicator"></span></th><th data-sort-key="overtime_amount">اضافه‌کاری (مبلغ)<span class="sort-indicator"></span></th><th data-sort-key="gross_no_mission">ناخالص (بدون مأموریت)<span class="sort-indicator"></span></th><th data-sort-key="gross_with_mission">ناخالص (با مأموریت)<span class="sort-indicator"></span></th><th data-sort-key="net_no_mission">خالص (بدون مأموریت)<span class="sort-indicator"></span></th><th data-sort-key="net_with_mission">خالص (با مأموریت)<span class="sort-indicator"></span></th><th>تغییر حقوق پایه</th></tr></thead><tbody></tbody></table></div>
+        </div>
+
+        <!-- TAB 2: لیست پرداخت‌های موردی -->
+        <div id="tab-adhoc" class="tab">
+            <div class="tab-actions-bar">
+                <button id="btnSingleAdHocPayment" class="file-upload-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    <span>پرداخت موردی تکی</span>
+                </button>
+                <div class="file-upload-wrapper">
+                    <label for="adhocFileInput" class="file-upload-label" style="background-color: #667EEA;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l-3.75 3.75M12 9.75l3.75 3.75M3 13.5v6c0 1.105.895 2 2 2h14c1.105 0 2-.895 2-2v-6" />
+                        </svg>
+                        <span>پرداخت موردی گروهی (اکسل)</span>
+                    </label>
+                    <input type="file" id="adhocFileInput" accept=".xlsx,.xls" style="display: none;" />
+                </div>
+            </div>
+            
+            <div class="filter-container">
+                <div class="filter-title-group">
+                    <h3>💵 لیست پرداخت‌های موردی</h3>
+                    <span id="adhocRecordCount" class="record-count"></span>
+                </div>
+                <div class="filter-controls-group">
+                    <div class="filter-group"><label for="filterAdHocLname">نام خانوادگی</label><input type="text" id="filterAdHocLname" placeholder="جستجو..."></div>
+                    <div class="filter-group"><label for="filterAdHocCompany">شرکت</label><select id="filterAdHocCompany"><option value="">همه</option></select></div>
+                    <div class="filter-group"><label for="filterAdHocType">نوع پرداخت</label><select id="filterAdHocType"><option value="">همه</option></select></div>
+                    <div class="filter-group"><label for="filterAdHocMonth">ماه</label><select id="filterAdHocMonth"><option value="">همه</option></select></div>
+                    <div class="filter-group"><label for="filterAdHocYear">سال</label><select id="filterAdHocYear"><option value="">همه</option></select></div>
+                    <button id="clearAdHocFilterBtn" title="بازنشانی تمام فیلترها و مرتب‌سازی"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.572a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3zM3.75 21L20.25 3.75" /></svg><span>حذف فیلترها</span></button>
+                </div>
+            </div>
+            <div class="table-container"><table id="adhocTable"><thead><tr><th data-sort-key="year">سال<span class="sort-indicator"></span></th><th data-sort-key="month">ماه<span class="sort-indicator"></span></th><th data-sort-key="company">شرکت<span class="sort-indicator"></span></th><th data-sort-key="fname">نام<span class="sort-indicator"></span></th><th data-sort-key="lname">نام خانوادگی<span class="sort-indicator"></span></th><th data-sort-key="payment_type">نوع پرداخت<span class="sort-indicator"></span></th><th data-sort-key="amount">مبلغ<span class="sort-indicator"></span></th><th>یادداشت</th><th>عملیات</th></tr></thead><tbody></tbody></table></div>
+        </div>
+
+        <!-- TAB 3: گزارش‌های مدیریتی -->
+        <div id="tab-reports" class="tab">
+            <h3>📈 داشبورد روند تخطی‌ها</h3>
+            <div class="kpi-grid"><div class="kpi-card"><p>تخطی‌ها در آخرین ماه</p><h3 id="kpiTotalViolations">-</h3></div><div class="kpi-card"><p>شایع‌ترین نوع تخطی</p><h3 id="kpiTopViolationType">-</h3></div><div class="kpi-card"><p>شرکت با بیشترین تخطی</p><h3 id="kpiTopCompany">-</h3></div></div>
+            <div class="chart-grid"><div class="chart-container card"><h4>روند تخطی حقوق پایه</h4><div class="chart-wrapper"><canvas id="chartBasePay"></canvas></div></div><div class="chart-container card"><h4>روند تخطی اضافه‌کار</h4><div class="chart-wrapper"><canvas id="chartOvertime"></canvas></div></div><div class="chart-container card"><h4>روند تخطی مزایا</h4><div class="chart-wrapper"><canvas id="chartAllowance"></canvas></div></div><div class="chart-container card"><h4>روند تخطی کارانه</h4><div class="chart-wrapper"><canvas id="chartBonus"></canvas></div></div><div class="chart-container card"><h4>روند تخطی خالص (بدون ماموریت)</h4><div class="chart-wrapper"><canvas id="chartNetNoMission"></canvas></div></div><div class="chart-container card"><h4>روند تخطی خالص (با ماموریت)</h4><div class="chart-wrapper"><canvas id="chartNetWithMission"></canvas></div></div></div>
+        </div>
+    </div>
+
+    <!-- MODALS (بدون تغییر) -->
+    <div id="noteModal" class="modal-backdrop"><div class="modal-content"><h4>ثبت/ویرایش یادداشت</h4><textarea id="noteTextarea" placeholder="یادداشت خود را اینجا بنویسید..."></textarea><div class="modal-buttons"><button class="btn-cancel">انصراف</button><button class="btn-save">ذخیره</button></div></div></div>
+    
+    <div id="employeeDossierModal" class="dossier-modal-backdrop"><div class="dossier-modal-content"><div class="dossier-modal-header"><div><h3 id="dossierName">پرونده کامل فردی</h3><p id="dossierPosition" class="dossier-position"></p></div><span id="dossierStatus" class="dossier-status-badge"></span><button class="dossier-print-btn" id="printDossierBtn" title="چاپ پروفایل"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z" /></svg></button><button class="dossier-close-btn" id="closeDossierBtn">&times;</button></div><div class="dossier-modal-body"><div class="dossier-grid"><div class="dossier-kpi-grid"><div class="kpi-card-compact kpi-accent-blue"><p>جمع خالص حقوق و مزایا <br> (بدون ماموریت)</p><h3 id="dossierKpiNetNoMission">-</h3></div><div class="kpi-card-compact kpi-accent-green"><p>جمع خالص حقوق و مزایا <br> (با ماموریت)</p><h3 id="dossierKpiNetWithMission">-</h3></div><div class="kpi-card-compact kpi-accent-blue-light"><p>میانگین خالص پرداختی <br> (بدون ماموریت)</p><h3 id="dossierKpiAvgNetNoMission">-</h3></div><div class="kpi-card-compact kpi-accent-green-light"><p>میانگین خالص پرداختی <br> (با ماموریت)</p><h3 id="dossierKpiAvgNetWithMission">-</h3></div></div><div class="dossier-chart-wrapper"></div></div><div class="dossier-history-container card"><h4>تاریخچه کامل پرداخت‌ها</h4><div class="table-container dossier-table"><table id="dossierPaymentTable"></table></div></div></div></div></div>
+
+    <!-- مدال نگاشت و تداخل (بدون تغییر) -->
+    <div id="mappingModal" class="modal-backdrop" style="display: none;">
+        <div class="modal-content mapping-modal-content">
+            <div class="modal-header">
+                <h3>نگاشت ستون‌های فایل اکسل</h3>
+                <button id="closeMappingModal" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="mapping-context-bar">
+                    <div class="form-group">
+                        <label for="companySelect">شرکت</label>
+                        <div class="company-selector-wrapper">
+                            <select id="companySelect"></select>
+                            <button id="addNewCompanyBtn" class="btn-icon" title="افزودن شرکت جدید">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="yearSelect">سال شمسی</label>
+                        <input type="number" id="yearSelect" placeholder="1404">
+                    </div>
+                    <div class="form-group">
+                        <label for="monthSelect">ماه</label>
+                        <select id="monthSelect"></select>
+                    </div>
+                </div>
+                <div class="dnd-mapper-container">
+                    <div class="dnd-column">
+                        <div class="dnd-column-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-1.125 0-2.25.9-2.25 2.25v11.25c0 1.24 1.01 2.25 2.25 2.25h9.75c1.24 0 2.25-1.01 2.25-2.25V13.5m-9 0h3.75" /></svg>
+                            <span>ستون‌های فایل اکسل</span>
+                        </div>
+                        <div id="excelHeadersPool" class="dnd-list"></div>
+                    </div>
+                    <div class="dnd-column">
+                         <div class="dnd-column-header">
+                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h4.5M15 3.75V2.25A2.25 2.25 0 0012.75 0h-3.5A2.25 2.25 0 007 2.25V3.75m9 0h-9" /></svg>
+                             <span>فیلدهای سیستم (ستون‌ها را اینجا رها کنید)</span>
+                        </div>
+                        <div id="systemFieldsContainer" class="dnd-list-targets"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                 <div class="profile-management">
+                    <input type="checkbox" id="saveMappingProfile" checked>
+                    <label for="saveMappingProfile">ذخیره این نگاشت برای استفاده‌های بعدی این شرکت</label>
+                </div>
+                <button id="processMappingBtn" class="btn-primary" disabled>تایید و پردازش</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="conflictModal" class="modal-backdrop" style="display: none;">
+        <div class="modal-content conflict-modal-content">
+            <div class="modal-header">
+                <h3>مدیریت رکوردهای تکراری</h3>
+                <span id="conflictCounter" class="record-count"></span>
+            </div>
+            <div class="modal-body conflict-modal-body">
+                <p class="conflict-intro">
+                    سیستم رکوردهایی را در فایل جدید پیدا کرد که از قبل برای همان کارمند در همان ماه و سال وجود داشتند. لطفاً مشخص کنید با هر کدام چه کاری انجام شود.
+                </p>
+                <div class="conflict-actions-header">
+                    <button id="resolveKeepAll" class="btn-secondary">نگه داشتن همه قدیمی‌ها</button>
+                    <button id="resolveReplaceAll" class="btn-warning">جایگزین کردن همه با نسخه جدید</button>
+                </div>
+                <div id="conflictListContainer"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="finishConflictResolution" class="btn-primary">اتمام و ذخیره تغییرات</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔥 مدال پرداخت موردی تکی (با placeholder برای مبلغ) -->
+    <div id="singleAdHocModal" class="modal-backdrop" style="display: none;">
+        <div class="modal-content misc-payment-modal-content">
+            <div class="modal-header">
+                <h3>ثبت پرداخت موردی تکی</h3>
+                <button id="closeSingleAdHocModal" class="modal-close-btn-top-left">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="adhocFname">نام *</label>
+                        <input type="text" id="adhocFname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adhocLname">نام خانوادگی *</label>
+                        <input type="text" id="adhocLname" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="adhocCompanySelect">شرکت پرداخت‌کننده *</label>
+                    <div class="company-selector-wrapper">
+                        <select id="adhocCompanySelect"></select>
+                        <button id="addAdhocCompanyBtn" class="btn-icon" title="افزودن شرکت جدید">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="adhocTypeSelect">نوع پرداخت *</label>
+                    <div class="company-selector-wrapper">
+                        <select id="adhocTypeSelect">
+                            <option value="">انتخاب کنید...</option>
+                        </select>
+                        <button id="addAdhocTypeBtn" class="btn-icon" title="افزودن نوع پرداخت جدید">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20" height="20">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="adhocMonthSelect">ماه *</label>
+                        <select id="adhocMonthSelect"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="adhocYearSelect">سال شمسی *</label>
+                        <input type="number" id="adhocYearSelect" placeholder="1404">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="adhocAmount">مبلغ (ریال) *</label>
+                    <!-- 🔥 تغییر: اضافه شدن placeholder با separator -->
+                    <input type="text" id="adhocAmount" required placeholder="مثال: 5,000,000" inputmode="numeric">
+                </div>
+                <div class="form-group">
+                    <label for="adhocDescription">توضیحات</label>
+                    <textarea id="adhocDescription" rows="2" placeholder="توضیحات اختیاری..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelAdHocBtn" class="btn-secondary">انصراف</button>
+                <button id="saveAdHocBtn" class="btn-primary">ذخیره پرداخت</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
